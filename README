@@ -1,0 +1,22 @@
+The purpose of this git hook is to support a special central git repository
+where 
+  1. Only a continuous integration tool can merge changes with master
+  2. Users can only push to their own prefix branches on the central 
+     git repository
+
+The purpose of this is that users can take advantage of distributed version 
+control while developing, but safely share and integrate changes on a 
+central git repository. 
+
+Since only the continuous integration tool can merge with master we can
+safely assume that master is always passing all tests.
+      
+A prefix branch is a on the form
+    prefix-name
+where prefix is the username returned by 'whoami' and the name can be any 
+arbitrary string. A user can pull from master or any prefix branch, but
+can only push to a branch prefixed with his own username.
+
+In this script we assume that the continuous integration tool is running 
+under a user called 'hudson', but it is trivial to change this.
+
