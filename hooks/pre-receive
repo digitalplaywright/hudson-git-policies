@@ -29,7 +29,7 @@ while read old new ref ; do
 			# give hudson the ultimate permission 
 			echo "`whoami` is not authorized to push to $ref"
 			echo "Or $ref does not exist! "
-                        echo "Please contact ROSE adminstrator to fix this."
+                        echo "Please contact your adminstrator to fix this."
 			exit 1
 		fi
 	else # branch does not have a prefix on the form 'prefix-*'
